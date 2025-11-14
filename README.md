@@ -1,5 +1,7 @@
 # PIML (Parenthesis Intended Markup Language) Definition
 
+**Spec version**: v1.1.0
+
 Libraries are listed in [LIBRARIES](./LIBRARIES.md) file.
 
 ## 1. Introduction
