@@ -25,10 +25,11 @@ Consistent indentation is crucial for defining structure.
 
 ### 2.3. Comments
 
-Comments are denoted by `#`. Everything from `#` to the end of the line is considered a comment and is ignored by parsers.
+A line is considered a comment only if it **starts with** a `#`. The entire line is then ignored by the parser. Inline comments are not supported.
 
 ```piml
-(key) value # This is a comment
+# This is a valid comment
+(key) This is a value, and # is part of it
 ```
 
 ### 2.4. Escaping
@@ -78,12 +79,17 @@ This is a deliberate design choice for simplicity, prioritizing a clean syntax o
 
 ### 3.3. Multi-line Strings
 
-Strings that span multiple lines. The content starts on the next indented line, and newlines are preserved.
+Strings that span multiple lines. The content starts on the next indented line.
+
+*   **Line Preservation:** Newlines, including empty or whitespace-only lines, are preserved.
+*   **Escaping:** To include a `#` at the beginning of a line, you must escape it with a backslash (`\`).
 
 ```piml
 (long_description)
     This is a multi-line string.
-    It can contain several lines of text.
+
+    It can contain several lines of text, including blank ones.
+    \# This line starts with a hash but is not a comment.
 ```
 
 ### 3.4. Arrays (Lists)
