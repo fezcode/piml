@@ -1,6 +1,6 @@
 # PIML (Parenthesis Intended Markup Language) Definition
 
-**Spec version**: v1.1.0
+**Spec version**: v1.1.1
 
 Libraries are listed in [LIBRARIES](./LIBRARIES.md) file.
 
@@ -105,21 +105,7 @@ A collection of ordered items, denoted by `>` at the start of each indented line
     > item3
 ```
 
-### 3.5. Sets (Not Implemented)
-
-A collection of unique, unordered items, denoted by `>|`.
-
-```piml
-(unique_tags)
-    >| tag_a
-    >| tag_b
-    >| tag_c
-    >| tag_a # This duplicate will be ignored
-```
-
-**Note:** A parser should discard duplicate values. The order of items in a set is not guaranteed.
-
-### 3.6. Objects (Maps)
+### 3.5. Objects (Maps)
 
 A collection of unordered key-value pairs, defined by indentation.
 
@@ -129,7 +115,7 @@ A collection of unordered key-value pairs, defined by indentation.
     (email) alice@example.com
 ```
 
-#### 3.6.1. List of Objects
+#### 3.5.1. List of Objects
 
 A list containing objects follows a specific syntax combining the Array (`>`) and Key (`()`) markers.
 
@@ -147,7 +133,7 @@ A list containing objects follows a specific syntax combining the Array (`>`) an
 
 **Rule:** The `(item_key)` (e.g., `(contributor)`) is considered **metadata for readability only**, similar to a comment. A parser must ignore this key and simply interpret the indented block as an object within the list.
 
-### 3.7. Specialized Types (by Convention)
+### 3.6. Specialized Types (by Convention)
 
 * **Dates/Times:** Represented as strings, conventionally in ISO 8601 format.
   ```piml
@@ -194,10 +180,10 @@ A list containing objects follows a specific syntax combining the Array (`>`) an
     (max_connections) 100
     (ssl_enabled) true
     (replica_hosts)
-        >| replica1.db.example.com
-        >| replica2.db.example.com
-        >| replica3.db.example.com
-        >| replica1.db.example.com # Duplicate, ignored by set
+        > replica1.db.example.com
+        > replica2.db.example.com
+        > replica3.db.example.com
+        > replica1.db.example.com # Duplicate, ignored by set
     (backup_schedule) nil # Null value
 
 (application_settings)

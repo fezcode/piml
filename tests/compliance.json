@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Simple String",
+    "piml": "(key) value",
+    "json": {"key": "value"}
+  },
+  {
+    "name": "Empty Array",
+    "piml": "(list) nil",
+    "json": {"list": null},
+    "note": "Parses to null in JSON/JS, but to empty slice in Go if struct defined"
+  },
+  {
+    "name": "Empty Object",
+    "piml": "(map) nil",
+    "json": {"map": null},
+    "note": "Parses to null in JSON/JS, but to empty map in Go if struct defined"
+  },
+  {
+    "name": "Integer",
+    "piml": "(val) 123",
+    "json": {"val": 123}
+  },
+  {
+    "name": "String looking like int",
+    "piml": "(val) 123", 
+    "json": {"val": 123}, 
+    "note": "Parsers without schema default to number. Schema-aware parsers can force string."
+  },
+  {
+     "name": "Nested List",
+     "piml": "(list)\n  > item1\n  > item2",
+     "json": {"list": ["item1", "item2"]}
+  },
+  {
+      "name": "Nested Object",
+      "piml": "(parent)\n  (child) value",
+      "json": {"parent": {"child": "value"}}
+  },
+  {
+      "name": "List of Objects",
+      "piml": "(users)\n  > (item)\n    (name) Alice\n  > (item)\n    (name) Bob",
+      "json": {"users": [{"name": "Alice"}, {"name": "Bob"}]}
+  },
+  {
+      "name": "Multiline String",
+      "piml": "(desc)\n  Line 1\n  Line 2",
+      "json": {"desc": "Line 1\nLine 2"}
+  },
+  {
+      "name": "Multiline String with Blank Lines",
+      "piml": "(desc)\n  Line 1\n\n  Line 3",
+      "json": {"desc": "Line 1\n\nLine 3"}
+  },
+  {
+      "name": "Keys with spaces",
+      "piml": "(my key) value",
+      "json": {"my key": "value"}
+  }
+]
