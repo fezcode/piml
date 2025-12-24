@@ -4,6 +4,9 @@
 
 Libraries are listed in [LIBRARIES](./LIBRARIES.md) file.
 
+![Fezcodex - Cover Art](piml.webp)
+
+
 ## 1. Introduction
 
 PIML (Parenthesis Intended Markup Language) is a data serialization format designed to be exceptionally human-readable and writable, while maintaining a clear and unambiguous structure for machine parsing.
